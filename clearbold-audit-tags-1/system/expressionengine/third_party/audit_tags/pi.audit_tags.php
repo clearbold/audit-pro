@@ -256,4 +256,4 @@ Audit Tags outputs logged data captured using Audit or Audit Pro. It supports th
 }
 
 /* End of file pi.toc.php */
-/* Location: ./system/expressionengine/third_party/toc/pi.toc.php */
+/* Location: ./system/expressionengine/third_party/audit_tags/pi.audit_tags.php */
