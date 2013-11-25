@@ -1,0 +1,11 @@
+1. Copy the audit_pro folder and its files into:
+
+./system/expressionengine/third_party
+
+2. Navigate to Add-ons -> Extensions in the Control Panel
+
+3. Click Enable for Audit Pro. When prompted, Install both the Extension & Module.
+
+(It's possible to run the Extension only, which would log data to the database without providing a screen in the Control Panel.)
+
+v1.0.5 - July 10, 2013.
