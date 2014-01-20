@@ -53,7 +53,7 @@
             foreach ($members->result_array() as $member)
             {
             ?>
-            <option value=\"<?php echo $member['member_id'] ?>\" ><?php echo $member['username'] ?></option>\
+            <option value=\"<?php echo $member['member_id'] ?>\" ><?php echo addslashes(trim($member['username'])) ?></option>\
             <?php
             }
             ?>
@@ -66,7 +66,7 @@
             foreach ($groups->result_array() as $group)
             {
             ?>
-            <option value=\"<?php echo $group['group_id'] ?>\" ><?php echo $group['group_title'] ?></option>\
+            <option value=\"<?php echo $group['group_id'] ?>\" ><?php echo addslashes(trim($group['group_title'])) ?></option>\
             <?php
             }
             ?>
