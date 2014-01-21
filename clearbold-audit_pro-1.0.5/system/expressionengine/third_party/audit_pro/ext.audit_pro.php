@@ -12,7 +12,7 @@
 class Audit_pro_ext {
 
     var $name       = 'Audit Pro';
-    var $version        = '1.0.5';
+    var $version        = '1.0.6';
     var $description    = 'Logs user activity to enable audit/review.';
     var $settings_exist = 'n';
     var $docs_url       = ''; // 'http://expressionengine.com/user_guide/';
