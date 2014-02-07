@@ -197,7 +197,7 @@ class Audit_pro_ext {
     function entry_publish_update($meta, $data)
     {
         $item_type = 'entry_update';
-        $entry_id =$data['entry_id'];
+        $entry_id = isset($data['entry_id']) ? $data['entry_id'] : 0;
         $create_edit = 1;
         if ($entry_id ==0)
         {
