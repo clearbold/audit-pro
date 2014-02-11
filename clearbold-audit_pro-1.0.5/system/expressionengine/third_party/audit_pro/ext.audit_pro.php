@@ -45,7 +45,7 @@ class Audit_pro_ext {
         $this->member_id = $this->EE->session->userdata['member_id'];
         $this->username = $this->EE->session->userdata['username'];
         $this->group_id = $this->EE->session->userdata['group_id'];
-        $this->user_agent = $this->EE->session->userdata['user_agent'];
+        $this->user_agent = isset($this->EE->session->userdata['user_agent']) ? $this->EE->session->userdata['user_agent'] : '';
         $this->ip_address = $this->EE->session->userdata['ip_address'];
         $this->site_id = $this->EE->config->item('site_id');
         $this->site_label = $this->EE->config->item('site_label');
@@ -197,7 +197,7 @@ class Audit_pro_ext {
     function entry_publish_update($meta, $data)
     {
         $item_type = 'entry_update';
-        $entry_id =$data['entry_id'];
+        $entry_id = isset($data['entry_id']) ? $data['entry_id'] : 0;
         $create_edit = 1;
         if ($entry_id ==0)
         {
