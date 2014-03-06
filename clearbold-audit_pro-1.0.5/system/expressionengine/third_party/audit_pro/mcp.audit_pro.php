@@ -23,7 +23,7 @@ class Audit_pro_mcp {
 
     function index()
     {
-        $this->EE->cp->set_variable('cp_page_title', lang('audit_pro_module_name'));
+        $this->EE->view->cp_page_title =  lang('audit_pro_module_name');
 
         $this->EE->load->library('table');
         $this->EE->table->set_columns(array(
@@ -140,7 +140,7 @@ class Audit_pro_mcp {
             $item_id = $row['item_id'];
             $item_title = $row['item_title'];
             $ip_address = $row['ip_address'];
-            $timestamp = $this->EE->localize->set_human_time($row['timestamp']);
+            $timestamp = $this->EE->localize->human_time($row['timestamp']);
             $user_agent = $row['user_agent'];
 
             $rows[] = array(
