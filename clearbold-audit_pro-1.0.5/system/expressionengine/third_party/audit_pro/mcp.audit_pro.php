@@ -191,7 +191,7 @@ class Audit_pro_mcp {
     function manage_notifications()
     {
         $vars = array();
-        $this->EE->view->cp_page_title =  lang('Manage Notifications');
+        $this->EE->view->cp_page_title =  lang('Manage Notifications'); //
         $this->EE->cp->set_breadcrumb(BASE.AMP.'C=addons_modules'.AMP.'M=show_module_cp'.AMP.'module=audit_pro', $this->EE->lang->line('audit_pro_module_name'));
         $data['channels'] = $this->_channels();
         $data['members'] = $this->_members();
