@@ -121,6 +121,31 @@ class Audit_pro_ext {
         return;
     }
 
+    function login_single($data){
+
+        $this->set_group_name();
+        $item_type = 'login';
+
+        $this->member_id = $data->member_id;
+        $this->username = $data->username;
+        $this->ip_address = $data->ip_address;
+
+        $insert_data = array(
+            'site_id'           =>  $this->site_id,
+            'member_id'    =>  $this->member_id,
+            'username'      =>  $this->username,
+            'group_name'  =>  $this->group_name,
+            'item_type'      =>  $item_type,
+            'ip_address'     =>  $this->ip_address,
+            'timestamp'     =>  $this->timestamp,
+            'user_agent'     =>  $this->user_agent
+        );
+        $this->EE->db->insert('audit_log', $insert_data);
+        $this->_send_notification($item_type);
+        return;
+    }
+
+
     function logout()
     {
         $item_type = 'logout';
@@ -531,7 +556,7 @@ class Audit_pro_ext {
                     $this->EE->email->subject($this->site_label . ': Audit Pro Notification: Member Edited');
                 break;
             }
-            $email_msg .= "\n\n" . $this->EE->localize->set_human_time($this->timestamp);
+            $email_msg .= "\n\n" . $this->EE->localize->human_time($this->timestamp);
             $this->EE->email->message(entities_to_ascii($email_msg));
             $this->EE->email->Send();
         }
@@ -613,7 +638,7 @@ class Audit_pro_ext {
         $hooks = array(
             'cp_login'                             =>  'cp_member_login',
             'cp_logout'                          =>  'cp_member_logout',
-            'login'                                  =>  'member_member_login_start',
+            'login_single'                           =>  'member_member_login_single',
             'logout'                               =>  'member_member_logout',
             'entry_delete'                      =>  'delete_entries_start',
             'entry_multi_update'           =>  'update_multi_entries_loop',
